@@ -1,25 +1,15 @@
-const sumAll = function(num1, num2) {
-    let largerNum = 0;
-    let smallerNum = 0;
-
-    if (num1 < 0 || num2 < 0) {
-        return "ERROR";
-    } else if (!Number.isInteger(num1) || !Number.isInteger(num2)) {
-        return "ERROR";
-    }
-
-    if (num1 > num2) {
-        largerNum = num1;
-        smallerNum = num2;
-    } else {
-        largerNum = num2;
-        smallerNum = num1;
+const sumAll = function(min, max) {
+    if (!Number.isInteger(min) || !Number.isInteger(max)) return "ERROR";
+    if (min < 0 || max < 0) return "ERROR";
+    if (min > max) {
+        [min, max] = [max, min];
     }
 
     let sum = 0;
-    while (smallerNum <= largerNum) {
-        sum += smallerNum;
-        smallerNum++;
+    let i = min;
+    while (i <= max) {
+        sum += i;
+        i++;
     }
     return sum;
 };
